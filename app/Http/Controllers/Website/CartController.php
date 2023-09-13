@@ -92,11 +92,16 @@ class CartController extends Controller
     public function orderForm(Request $request, $id)
     {
         $product = Product::find($id);
-        $stock = Stock::where('id',$product->id)->get();
-        foreach($stock as $st_qty){
-            $st_qty->total_produce;
+        $stock = Stock::where('product_id',$product->id)->get();
+
+//        dd(isset($stock[0]->total_produce));
+//        foreach($stock as $st_qty){
+//            $st_qty->total_produce;
+//        }
+        if ($stock[0]->total_produce < $request->quantity or isset($stock[0]->total_produce) === false) {
+            return redirect()->back()->with('error', 'Out of stock');
         }
-        if ($st_qty->total_produce <= $request->quantity) {
+        else if (isset($stock[0]->total_produce) == false) {
             return redirect()->back()->with('error', 'Out of stock');
         }
         $cartExist = session()->get('cart');

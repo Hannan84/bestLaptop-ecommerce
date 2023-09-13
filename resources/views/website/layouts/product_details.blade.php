@@ -54,19 +54,19 @@
                                 <div class="col-lg-12 mt-3">
                                     <div class="row ">
                                         <div class="col-lg-6 ">
-{{--                                            <form action="{{ route('website.order.form', $product->id) }}" method="GET">--}}
-{{--                                                @csrf--}}
-{{--                                                <input type="number" name="quantity" class="form-control text-center w-100"--}}
-{{--                                                    value="">--}}
-{{--                                                <button type="submit" class="btn btn-success w-100 text-center mt-2">--}}
-{{--                                                    Buy Now--}}
-{{--                                                </button>--}}
-{{--                                            </form>--}}
-                                            <input type="number" name="quantity" class="form-control text-center w-100"--}}
-                                                 value="">
+                                            <form action="{{ route('website.order.form', $product->id) }}" method="GET">
+                                                @csrf
+                                                <input type="number" min="1" name="quantity" class="form-control w-100"
+                                                    value="1">
                                                 <button type="submit" class="btn btn-success w-100 text-center mt-2">
-                                                    Order Now
+                                                    Buy Now
                                                 </button>
+                                            </form>
+{{--                                            <input type="number" name="quantity" class="form-control text-center w-100"--}}
+{{--                                                 value="">--}}
+{{--                                                <button type="submit" class="btn btn-success w-100 text-center mt-2">--}}
+{{--                                                    Order Now--}}
+{{--                                                </button>--}}
                                             </div>
                                             <div class="col-lg-6 pb-2 mt-5 ">
                                                 <a href="{{ route('add.to.cart', $product->id) }}" class="btn btn-info w-100">

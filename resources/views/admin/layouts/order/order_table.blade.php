@@ -48,11 +48,11 @@
                 <td>
                     @if($order->order_status == 'pending')
                     <a href="{{ route('admin.accept.order',$order->id) }}" class="btn btn-success"><i class="fa fa-check"></i></a>
-                    <a href="{{ route('admin.reject.order',$order->id) }}" class="btn btn-danger mt-1"><i class="fa fa-times"></i></a>
-                    @elseif($order->order_status == 'canceled')
-                    <a href="{{ route('admin.accept.order',$order->id) }}" class="btn btn-success"><i class="fa fa-check"></i></a>
+                    {{-- <a href="{{ route('admin.reject.order',$order->id) }}" class="btn btn-danger mt-1"><i class="fa fa-times"></i></a>
+                    @elseif($order->order_status == 'canceled') --}}
+                    {{-- <a href="{{ route('admin.accept.order',$order->id) }}" class="btn btn-success"><i class="fa fa-check"></i></a>
                     @elseif($order->order_status == 'accepted')
-                    <a href="{{ route('admin.reject.order',$order->id) }}" class="btn btn-danger mt-1"><i class="fa fa-times"></i></a>
+                    <a href="{{ route('admin.reject.order',$order->id) }}" class="btn btn-danger mt-1"><i class="fa fa-times"></i></a> --}}
                     @endif
                 </td>
             </tr>

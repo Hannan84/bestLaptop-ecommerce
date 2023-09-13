@@ -48,7 +48,7 @@
                         <div class="carousel-inner">
                             @foreach ($offers_image as $offer)
                                 <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
-                                    <img class="d-block w-100" src="{{ asset('/uploads/offer/' . $offer) }}" alt="Slide" style="height: 380px;">
+                                    <img class="d-block w-100" src="{{ asset('/uploads/offer/' . $offer) }}" alt="Slide" style="height: 520px;">
                                 </div>
                             @endforeach
                         </div>

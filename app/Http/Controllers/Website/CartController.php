@@ -91,19 +91,37 @@ class CartController extends Controller
 
     public function orderForm(Request $request, $id)
     {
-        $product = Product::find($id);
-        $stock = Stock::where('product_id',$product->id)->get();
+//         $product = Product::find($id);
+//         $stock = Stock::where('product_id',$product->id)->get();
 
-//        dd(isset($stock[0]->total_produce));
-//        foreach($stock as $st_qty){
-//            $st_qty->total_produce;
-//        }
-        if ($stock[0]->total_produce < $request->quantity or isset($stock[0]->total_produce) === false) {
+// //        dd(isset($stock[0]->total_produce));
+// //        foreach($stock as $st_qty){
+// //            $st_qty->total_produce;
+// //        }
+//         if ($stock[0]->total_produce < $request->quantity or isset($stock[0]->total_produce) === false) {
+//             return redirect()->back()->with('error', 'Out of stock');
+//         }
+//         else if (isset($stock[0]->total_produce) == false) {
+//             return redirect()->back()->with('error', 'Out of stock');
+//         }
+        $product = Product::find($id);
+
+        if (!$product) {
+            return redirect()->back()->with('error', 'Product not found');
+        }
+        
+        $stock = Stock::where('product_id', $product->id)->first();
+        
+        if (!$stock || $stock->total_produce < $request->quantity) {
             return redirect()->back()->with('error', 'Out of stock');
         }
-        else if (isset($stock[0]->total_produce) == false) {
-            return redirect()->back()->with('error', 'Out of stock');
-        }
+        
+      
+
+
+
+
+
         $cartExist = session()->get('cart');
         // case-1:no cart
         if (!$cartExist) {

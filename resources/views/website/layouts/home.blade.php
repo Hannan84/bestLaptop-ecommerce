@@ -22,7 +22,8 @@
                 <div class="btn-group">
                     @foreach ($categories as $category)
                         <div class="btn-group">
-                            <a href="{{ route('show.category.product', $category->id) }}" class="btn btn-light m-1 text-uppercase">
+                            <a href="{{ route('show.category.product', $category->id) }}"
+                                class="btn btn-light m-1 text-uppercase">
                                 {{ $category->category_name }}
                             </a>
                         </div>
@@ -42,21 +43,16 @@
                                 <li data-target="#carouselExampleIndicators" data-slide-to="{{ $key }}"></li>
                             @endforeach
                         </ol>
+                     
+
                         <div class="carousel-inner">
                             @foreach ($offers_image as $offer)
-                                @if ($loop->first)
-                                    <div class="carousel-item active">
-                                        <img class="d-block w-100" src="{{ asset('/uploads/offer/' . $offer) }}"
-                                            alt="First slide">
-                                    </div>
-                                @else
-                                    <div class="carousel-item">
-                                        <img class="d-block w-100" src="{{ asset('/uploads/offer/' . $offer) }}"
-                                            alt="First slide">
-                                    </div>
-                                @endif
+                                <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
+                                    <img class="d-block w-100" src="{{ asset('/uploads/offer/' . $offer) }}" alt="Slide" style="height: 380px;">
+                                </div>
                             @endforeach
                         </div>
+                        
                         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="sr-only">Previous</span>
@@ -69,25 +65,25 @@
                 </div>
                 <!-- compare product -->
                 <!-- <div class="col-lg-4 mt-4">
-                    <div class="compare-product text-center">
-                        <h3 class="pt-1">Compare Product</h3>
-                        <p>Choose two product to compare</p>
-                        <form action="" class="form-inline my-2 my-lg-0">
-                            <input type="search" name="search_c1" value="" placeholder="Search"
-                                class="form-control m-2 w-100" aria-label="Search">
-                            <input type="search" name="search_c2" value="" placeholder="Search"
-                                class="form-control m-2 w-100" aria-label="Search">
-                            <br>
-                            <input type="submit" class="bg-secondary p-2 border text-white w-100">
-                        </form>
-                    </div>
-                </div> -->
+                        <div class="compare-product text-center">
+                            <h3 class="pt-1">Compare Product</h3>
+                            <p>Choose two product to compare</p>
+                            <form action="" class="form-inline my-2 my-lg-0">
+                                <input type="search" name="search_c1" value="" placeholder="Search"
+                                    class="form-control m-2 w-100" aria-label="Search">
+                                <input type="search" name="search_c2" value="" placeholder="Search"
+                                    class="form-control m-2 w-100" aria-label="Search">
+                                <br>
+                                <input type="submit" class="bg-secondary p-2 border text-white w-100">
+                            </form>
+                        </div>
+                    </div> -->
             </div>
         </div>
     </section>
     <!-- notice -->
     <div class="text_animation">
-        <p id="pot"><?php echo date("jS F l")?>, our all branches are open except Suvastu Arcade Branch.
+        <p id="pot"><?php echo date('jS F l'); ?>, our all branches are open except Suvastu Arcade Branch.
             Additionally our online activities will remain open and operational.
         </p>
     </div>
@@ -130,11 +126,11 @@
                         <div class="card">
                             <a href="{{ route('website.product.details', $product->id) }}" style="color:black;">
                                 <div class="card-body font-weight-bold">
-                                    <img style="height: 192px;
-    width: 242px" src="{{ asset('uploads/products/' . $product->product_image) }}" alt=""
+                                    <img style="height: 192px; width: 242px"
+                                        src="{{ asset('uploads/products/' . $product->product_image) }}" alt=""
                                         class="img-fluid"><br><br>
                                     <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">
-                                        {{ $product->model }}</p>
+                                        {{ $product->product_name }}</p>
                                     <p style="color:#d11d1d">
                                         {{ number_format($product->regular_price) }}<span style="font-size:1.5rem">৳</span>
                                     </p>
@@ -145,7 +141,8 @@
                     </div>
                 @endforeach
             </div>
-            <div class="text-center mb-4 mt-4"><a href="{{ route('website.all.product') }}" class="view_all_product_button btn">View All Product</a>
+            <div class="text-center mb-4 mt-4"><a href="{{ route('website.all.product') }}"
+                    class="view_all_product_button btn">View All Product</a>
             </div>
         </div>
     </section>

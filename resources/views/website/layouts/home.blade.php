@@ -134,7 +134,7 @@
     width: 242px" src="{{ asset('uploads/products/' . $product->product_image) }}" alt=""
                                         class="img-fluid"><br><br>
                                     <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">
-                                        {{ $product->model }}</p>
+                                        {{ $product->product_name }}</p>
                                     <p style="color:#d11d1d">
                                         {{ number_format($product->regular_price) }}<span style="font-size:1.5rem">৳</span>
                                     </p>
